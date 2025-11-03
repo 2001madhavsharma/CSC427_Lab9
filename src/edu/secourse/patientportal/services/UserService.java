@@ -11,8 +11,12 @@ public class UserService {
 
     //Create User
     public boolean createUser(User user) {
-        if(users.contains(user))
+        if(users.contains(user)){
+
             return false;
+
+        }
+
         users.add(user);
         return true;
     }
