@@ -14,29 +14,44 @@ public class AppointmentController {
     }
 
 
-    public void createAppointment(Appointment appointment) {
+    public boolean createAppointment(Appointment appointment) {
         try {
+
             boolean success = appointmentService.createAppointment(appointment);
             if (success) {
+
                 System.out.println("Appointment created successfully");
+                return true;
+            }
+            else {
+
+                System.out.println("Failed to create appointment.");
+                return false;
             }
         } catch (IllegalArgumentException e) {
+
             System.out.println("Error creating the appointment: " + e.getMessage());
+            return false;
         }
     }
 
 
-    public void cancelAppointment(int appointmentId) {
+    public boolean cancelAppointment(int appointmentId) {
+
         boolean success = appointmentService.cancelAppointment(appointmentId);
         if (success) {
+
             System.out.println("Appointment cancelled successfully");
+            return true;
         } else {
             System.out.println("Appointment not found");
+            return false;
         }
     }
 
     //Changes details
     public void modifyAppointment(int appointmentId, Patient patient, Doctor doctor, LocalDateTime newDateTime) {
+
         try {
             boolean success = appointmentService.modifyAppointment(appointmentId, patient, doctor, newDateTime);
             if (success) {
@@ -50,37 +65,44 @@ public class AppointmentController {
     }
 
 
-    public void printAppointmentsForPatient(Patient patient) {
-        List<Appointment> appointments = appointmentService.getAppointmentsForPatient(patient);
-        if (appointments.isEmpty()) {
-            System.out.println("No appointments found for patient: " + patient.getName());
-        } else {
-            System.out.println("Appointments for patient " + patient.getName() + ":");
-            for (int i = 0; i < appointments.size(); i++) {
-                Appointment appointment = appointments.get(i);
-                System.out.println("Appointment #" + appointment.getAppointmentId() +
-                        " with Dr. " + appointment.getDoctor().getName() +
-                        " at " + appointment.getAppointmentDateTime() +
-                        " [" + appointment.getStatus() + "]");
-            }
-        }
-    }
 
 
-    public void printAppointmentsForDoctor(Doctor doctor) {
-        List<Appointment> appointments = appointmentService.getAppointmentsForDoctor(doctor);
-        if (appointments.isEmpty()) {
-            System.out.println("No appointments found for doctor: " + doctor.getName());
-        } else {
-            System.out.println("Appointments for Dr. " + doctor.getName() + ":");
-            for (int i = 0; i < appointments.size(); i++) {
-                Appointment appointment = appointments.get(i);
-                System.out.println("Appointment #" + appointment.getAppointmentId() +
-                        " with patient " + appointment.getPatient().getName() +
-                        " at " + appointment.getAppointmentDateTime() +
-                        " [" + appointment.getStatus() + "]");
+        public void getAppointmentsForUser(User user) {
+            try {
+                List<Appointment> appointments = appointmentService.getAppointmentsForUser(user);
+
+                if (appointments.isEmpty()) {
+
+                    System.out.println("No appointments found for user: " + user.getUsername());
+                } else {
+                    System.out.println("Appointments for " + user.getUsername() + ":");
+                    for (Appointment appointment : appointments) {
+                        printAppointment(appointment);
+                        System.out.println("----------------------");
+                    }
+                }
+            } catch (IllegalArgumentException e) {
+                System.out.println("Error retrieving appointments: " + e.getMessage());
             }
         }
 
+
+
+
+    public void printAppointment(Appointment appointment) {
+
+        if (appointment == null) {
+            System.out.println("Error: Appointment not found.");
+            return;
+        }
+
+        System.out.println("\nAppointment #" + appointment.getAppointmentId() +
+                "\nPatient: " + appointment.getPatient().getUsername() +
+                "\nDoctor: " + appointment.getDoctor().getUsername() +
+                "\nDate and Time: " + appointment.getAppointmentDateTime() +
+                "\nStatus: " + appointment.getStatus());
     }
+
+
+
 }

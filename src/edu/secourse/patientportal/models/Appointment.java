@@ -11,6 +11,7 @@ public class Appointment {
     private LocalDateTime appointmentDateTime;
     private Status status;
 
+
     public Status getStatus() {
         return status;
     }
@@ -21,11 +22,11 @@ public class Appointment {
     }
 
     public Appointment(Patient patient, Doctor doctor, LocalDateTime appointmentDateTime) {
-        this.appointmentId = appointmentId;
+
         this.patient = patient;
         this.doctor = doctor;
-        this.appointmentDateTime = LocalDateTime.now();
-        Status status = Status.ACTIVE;
+        this.appointmentDateTime = appointmentDateTime;
+        this.status = Status.ACTIVE;
     }
 
     public void setStatus(Status status) {

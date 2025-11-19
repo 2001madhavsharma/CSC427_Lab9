@@ -46,21 +46,27 @@ public class UserController {
 
 
 
-    public void updateUser(int accountNumber, String username, String hashedPassword, String name, String email) {
+    public boolean updateUser(String oldUsername, String newUsername, String hashedPassword, String name, String email) {
 
         try {
 
 
-            boolean success = userService.updateUser(accountNumber, username, hashedPassword, name, email);
+            boolean success = userService.updateUser(oldUsername, newUsername, hashedPassword, name, email);
             if (success) {
+
                 System.out.println("User updated successfully");
+                return true;
 
             } else {
-                System.out.println("User update failed");
+
+                System.out.println("User update failed. User not found");
+                return false;
             }
 
         }catch (IllegalArgumentException e){
+
             System.out.println("There was an error while updating the user: " + e.getMessage());
+            return false;
         }
 
         }
@@ -110,7 +116,7 @@ public class UserController {
 
         }
 
-        if (user.getName() == null || user.getName().isBlank() || !user.getName().trim().matches("^[A-Za-z\\s]+$")) {
+        if (user.getName() == null || user.getName().isBlank() || !user.getName().trim().matches("^[A-Za-z\\s'-]+$")) {
 
             System.out.println("Enter in a name without numbers or special characters");
             isValid = false;
