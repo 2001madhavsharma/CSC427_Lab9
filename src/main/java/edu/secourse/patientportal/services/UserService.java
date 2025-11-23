@@ -45,8 +45,8 @@ public class UserService {
                 users.add(user);
                 success = true;
             }
-        } catch (Exception ex) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
         return success;
     }
@@ -88,8 +88,8 @@ public class UserService {
             if (!userExists) {
                 System.out.println("User does not exist.");
             }
-        } catch (Exception ex) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
     }
 
@@ -108,8 +108,8 @@ public class UserService {
                     success = true;
                 }
             }
-        } catch (Exception ex) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
         return success;
     }
@@ -138,8 +138,8 @@ public class UserService {
                     success = true;
                 }
             }
-        } catch (Exception ex) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
         return success;
     }
@@ -156,8 +156,8 @@ public class UserService {
             if (users.contains(user)) {
                 containsUser = true;
             }
-        } catch (Exception e) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
         return containsUser;
     }

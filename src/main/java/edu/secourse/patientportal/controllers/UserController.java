@@ -32,8 +32,8 @@ public class UserController {
             if (userService != null && this.userService != null) {
                 this.userService = userService;
             }
-        } catch (Exception e) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
     }
 
@@ -49,8 +49,8 @@ public class UserController {
             if (user != null) {
                 success = userService.createUser(user);
             }
-        } catch (Exception e) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
         return success;
     }
@@ -69,8 +69,8 @@ public class UserController {
         boolean success = false;
         try {
             success = userService.updateUser(oldUsername, newUsername, hashedPassword, name, email);
-        } catch (Exception e) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
         return success;
     }
@@ -89,8 +89,8 @@ public class UserController {
                     isValid = true;
                 }
             }
-        } catch (Exception e) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
         return isValid;
     }

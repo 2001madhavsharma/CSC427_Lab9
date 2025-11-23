@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class AppointmentService {
 
     /** Internal list storing all appointments created in the system. */
-    private ArrayList<Appointment> appointments = new ArrayList<>();
+    private final ArrayList<Appointment> appointments = new ArrayList<>();
 
     /** Auto-incrementing ID counter for newly created appointments. */
     private int nextId = 1;
@@ -58,8 +58,8 @@ public class AppointmentService {
                 appointments.add(appointment);
                 success = true;
             }
-        } catch (Exception ex) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
         return success;
     }
@@ -83,8 +83,8 @@ public class AppointmentService {
                     }
                 }
             }
-        } catch (Exception ex) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
         return success;
     }
@@ -100,7 +100,6 @@ public class AppointmentService {
      */
     public boolean modifyAppointment(int appointmentId, Patient patient, Doctor doctor, LocalDateTime newDateTime) {
         boolean success = false;
-
         try {
             for (Appointment value : appointments) {
                 if (value != null) {
@@ -113,8 +112,8 @@ public class AppointmentService {
                     }
                 }
             }
-        } catch (Exception ex) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
         return success;
     }
@@ -133,7 +132,6 @@ public class AppointmentService {
      */
     public ArrayList<Appointment> getAppointmentsForUser(User user) {
         ArrayList<Appointment> result = new ArrayList<>();
-
         try {
             if (user != null) {
                 for (Appointment appointment : appointments) {
@@ -144,8 +142,8 @@ public class AppointmentService {
                     }
                 }
             }
-        } catch (Exception ex) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
         return result;
     }

@@ -35,14 +35,6 @@ public class Patient extends User {
     public Patient(String username, String hashedPassword, String name, String email) {
         super(username, hashedPassword, name, email, "patient");
 
-        if (nextPatientId == Integer.MAX_VALUE) {
-            throw new IllegalStateException("Overflow");
-        }
-
-        if (nextPatientId == Integer.MIN_VALUE) {
-            throw new IllegalStateException("Underflow");
-        }
-
         this.patientId = nextPatientId;
 
         nextPatientId += 1;

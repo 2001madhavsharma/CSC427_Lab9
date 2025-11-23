@@ -46,8 +46,8 @@ public class Appointment {
                 this.appointmentDateTime = appointmentDateTime;
                 this.status = Status.ACTIVE;
             }
-        } catch (Exception ex) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
     }
 
@@ -73,8 +73,8 @@ public class Appointment {
                 this.status = status;
                 success = true;
             }
-        } catch (Exception ex) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
         return success;
     }
@@ -101,8 +101,8 @@ public class Appointment {
                 this.appointmentId = appointmentId;
                 success = true;
             }
-        } catch (Exception ex) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
         return success;
     }
@@ -129,8 +129,8 @@ public class Appointment {
                 this.patient = patient;
                 success = true;
             }
-        } catch (Exception ex) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
 
         return success;
@@ -158,8 +158,8 @@ public class Appointment {
                 this.doctor = doctor;
                 success = true;
             }
-        } catch (Exception ex) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
         return success;
     }
@@ -186,8 +186,8 @@ public class Appointment {
                 this.appointmentDateTime = appointmentDateTime;
                 success = true;
             }
-        } catch (Exception ex) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
         return success;
     }
@@ -198,8 +198,8 @@ public class Appointment {
     public void cancelAppointment() {
         try {
             this.status = Status.CANCELLED;
-        } catch (Exception ex) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
     }
 

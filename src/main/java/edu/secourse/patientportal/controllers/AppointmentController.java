@@ -31,8 +31,8 @@ public class AppointmentController {
             if (appointmentService != null) {
                 this.appointmentService = appointmentService;
             }
-        } catch (Exception ex) {
-            // Swallowed intentionally: fallback to default service.
+        } catch (Exception _) {
+
         }
     }
 
@@ -48,8 +48,8 @@ public class AppointmentController {
             if (appointment != null) {
                 success = appointmentService.createAppointment(appointment);
             }
-        } catch (Exception ex) {
-            // Prevents runtime failures on invalid data.
+        } catch (Exception _) {
+
         }
         return success;
     }
@@ -64,8 +64,8 @@ public class AppointmentController {
         boolean success = false;
         try {
             success = appointmentService.cancelAppointment(appointmentId);
-        } catch (Exception ex) {
-            // Suppressed to avoid crashing on unexpected errors.
+        } catch (Exception _) {
+
         }
         return success;
     }
@@ -85,8 +85,8 @@ public class AppointmentController {
             if (patient != null && doctor != null && newDateTime != null) {
                 success = appointmentService.modifyAppointment(appointmentId, patient, doctor, newDateTime);
             }
-        } catch (Exception ex) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
         return success;
     }
@@ -105,8 +105,8 @@ public class AppointmentController {
             if (user != null) {
                 userAppointments = appointmentService.getAppointmentsForUser(user);
             }
-        } catch (Exception ex) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
         return userAppointments;
     }
@@ -119,8 +119,8 @@ public class AppointmentController {
     public void printAppointment(Appointment appointment) {
         try {
             System.out.println(appointment.toString());
-        } catch (Exception ex) {
-            // Avoids crashing if the service encounters an error.
+        } catch (Exception _) {
+
         }
     }
 }
