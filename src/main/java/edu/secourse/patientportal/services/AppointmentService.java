@@ -58,7 +58,7 @@ public class AppointmentService {
                 appointments.add(appointment);
                 success = true;
             }
-        } catch (Exception _) {
+        } catch (Exception e_) {
 
         }
         return success;
@@ -83,7 +83,7 @@ public class AppointmentService {
                     }
                 }
             }
-        } catch (Exception _) {
+        } catch (Exception e_) {
 
         }
         return success;
@@ -112,7 +112,7 @@ public class AppointmentService {
                     }
                 }
             }
-        } catch (Exception _) {
+        } catch (Exception e_) {
 
         }
         return success;
@@ -142,7 +142,7 @@ public class AppointmentService {
                     }
                 }
             }
-        } catch (Exception _) {
+        } catch (Exception e) {
 
         }
         return result;
